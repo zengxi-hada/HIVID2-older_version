@@ -104,7 +104,7 @@ After obtaining the integration sites, HIVID2 allows the user to decide whether 
 
 (2)	Run advanced analysis
 #First， run Analyse.sh, generatint R scripts and the relevant files.
-sh /absolute_path_of_main.pl/HIVID2.1_advanced_analysis/Analyse.sh /absolute_path/tumor /absolute_path/normal        
+sh /absolute_path_of_main.pl/advanced_analysis/Analyse.sh /absolute_path/tumor /absolute_path/normal        
 #Second, run the generated R scripts
 Rscript xxx.R
 
