@@ -201,17 +201,17 @@ with open (cmd_args.i,"r") as infile:
 				output1="\t".join(line[0:2])
 				left_support=str(uniq_read1)
 				right_support=str(uniq_read2)
-##				disc_support=str(uniq_read3)
-##				total_support=str(uniq_read1+uniq_read2+uniq_read3)
+				disc_support=str(uniq_read3)
+				total_support=str(uniq_read1+uniq_read2+uniq_read3)
 				norm_left=str(round(uniq_read1/float(line[2])*float(line[6]),3)) if uniq_read1>0 else "0"
 				norm_right=str(round(uniq_read2/float(line[3])*float(line[7]),3)) if uniq_read2>0 else "0"
-##				norm_disc=str(round(uniq_read3/float(line[4])*float(line[8]),3)) if uniq_read3>0 else "0"
-##				norm_sum=str(round(float(norm_left)+float(norm_right)+float(norm_disc),3))
+				norm_disc=str(round(uniq_read3/float(line[4])*float(line[8]),3)) if uniq_read3>0 else "0"
+				norm_sum=str(round(float(norm_left)+float(norm_right)+float(norm_disc),3))
 				left_reads_ID=",".join(raw_id_list1[a] for a in uniq_id_list1)
 				right_reads_ID=",".join(raw_id_list2[b] for b in uniq_id_list2)
-##				disc_reads_ID=",".join(raw_id_list3[c] for c in uniq_id_list3)
+				disc_reads_ID=",".join(raw_id_list3[c] for c in uniq_id_list3)
 				#outfile.write("\t".join(line[:-2])+"\t"+str(uniq_read1)+"\t"+str(uniq_read2)+"\t"+str(uniq_read1+uniq_read2)+"\t"+",".join(uniq_id_list1)+"\t"+",".join(uniq_id_list2)+"\n")
-##				outfile.write(output1+"\t"+left_support+"\t"+right_support+"\t"+disc_support+"\t"+total_support+"\t"+norm_left+"\t"+norm_right+"\t"+norm_disc+"\t"+norm_sum+"\t"+left_reads_ID+"\t"+right_reads_ID+"\t"+disc_reads_ID+"\n")
+				outfile.write(output1+"\t"+left_support+"\t"+right_support+"\t"+disc_support+"\t"+total_support+"\t"+norm_left+"\t"+norm_right+"\t"+norm_disc+"\t"+norm_sum+"\t"+left_reads_ID+"\t"+right_reads_ID+"\t"+disc_reads_ID+"\n")
 			else:
 				outfile.write("\t".join(line)+"\n")
 				#outfile.write("\t".join(line[:-2])+"\tleft_uniq\tright_uniq\tTotal_uniq\tleft_reade_new\tright_reads_new\n")
