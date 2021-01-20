@@ -57,7 +57,7 @@ Note:
   
   (1) Once this step is finished, a folder named after the sample name will be generated in step4 folder. There is a shell script in each directory. These scripts could be manually delivered to the SGE system using qsub. 
   
-  (2) It should be noted that there are a file named "ref.list" in the same folder of main.pl. "ref.list" must contain all the ID of reference genomes used in the sequence alignment of step3 and step4, or the user will get error or uncomplete results in *human_bk.final.stp2.uniq2.final during the procedure of deep removing PCR-duplications. We have involved some predefined reference names in ref.list, but the users should add the references names used in their own experiments.
+  (2) It should be noted that there are a file named "ref.list" in the same folder of main.pl. "ref.list" must contain all the ID of reference genomes used in the sequence alignment of step3 and step4, or the user will get error or uncompleted results in *human_bk.final.stp2.uniq2.final during the procedure of deep removing PCR-duplications. We have involved some predefined reference names in ref.list, but the users should add the references names used in their own experiments. In the ref.list, each ID should be followed by an underline, for example "chr1_".
   
 
 
