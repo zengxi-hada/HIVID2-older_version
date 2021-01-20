@@ -5,6 +5,7 @@ from Bio import SeqIO
 from tempfile import TemporaryFile
 import argparse
 import sys
+import re
 reload(sys) 
 sys.setdefaultencoding('utf-8')
 sys.setrecursionlimit(10000)
@@ -12,6 +13,7 @@ sys.setrecursionlimit(10000)
 ## author
 #Zhou Yi
 
+bin_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 temp = TemporaryFile()
 
 cmd_parser = argparse.ArgumentParser(description='re-evaluate uniq_read in support_read')
@@ -64,8 +66,8 @@ def get_seq(file1,file2,id_list):
 	tmp_o2=cmd_args.id+".tmp2.fq"
 	with open(tmp,"w") as out1:
 		out1.write("\n".join(id_list)+"\n")
-	cmd1="zcat "+file1+" | /public/home/xzeng/bin/BGI_bin/HPV/norm_hpv/update/HZAU1_HIVID2.1/seqkit grep -f "+tmp+" -o "+tmp_o1
-	cmd2="zcat "+file2+" | /public/home/xzeng/bin/BGI_bin/HPV/norm_hpv/update/HZAU1_HIVID2.1/seqkit grep -f "+tmp+" -o "+tmp_o2
+	cmd1="zcat " +file1+ " | " +bin_dir+ "/seqkit grep -f " +tmp+ " -o " +tmp_o1
+	cmd2="zcat " +file2+ " | " +bin_dir+ "/seqkit grep -f " +tmp+ " -o " +tmp_o2
 	os.system(cmd1)
 	os.system(cmd2)
 	os.remove(tmp)
@@ -78,6 +80,8 @@ def get_seq(file1,file2,id_list):
 	for r2 in SeqIO.parse(tmp_o2, "fastq"):
 		dic2[str(r2.id)]=str(r2.seq)
 		#print str(r2.id)
+	os.remove(tmp_o1)
+	os.remove(tmp_o2)
 	return dic1,dic2
 
 #从dic获取uniq list id的列表
@@ -121,12 +125,15 @@ def get_uniq(dic1,dic2):
 def clean_readID(read_id,ref_list):
 	if read_id[-2:]=="_1" or read_id[-2:]=="_2":
 		read_id=read_id[0:-2]
+	elif read_id[-2:]=="/1" or read_id[-2:]=="/2":
+		read_id=read_id[0:-2]
 	else:
 		read_id=read_id
 	read_id=read_id.replace("left_","").replace("trim_pe#","").replace("trim_se#","").replace("unmap_","")
 	for i in ref_list:
 		read_id=read_id.replace(i,"")
 #	read_id=read_id.replace("_","")
+		
 	return read_id
 
 
@@ -135,6 +142,7 @@ ref_list=[]
 with open (cmd_args.ref,"r") as reflist:
 	for line in reflist:
 		line=line.strip("\n")
+		line=re.sub(r'\s+', '', line)
 		ref_list.append(line)
 
 with open (cmd_args.i,"r") as infile:
