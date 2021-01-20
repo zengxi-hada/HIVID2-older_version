@@ -55,8 +55,8 @@ open OUT5, "|gzip > $un_un" or die $!;
 
 for my $read_id(keys %hbpe){
 	if (exists $hupe{$read_id}){
-		print OUT1 "$read_id"."1\t",$hupe{$read_id}{"1"},"\n";
-		print OUT1 "$read_id"."2\t",$hupe{$read_id}{"2"},"\n";
+		print OUT1 "$read_id"."/1\t",$hupe{$read_id}{"1"},"\n";
+		print OUT1 "$read_id"."/2\t",$hupe{$read_id}{"2"},"\n";
 		my $hupechr=(split /\s+/,$hupe{$read_id}{"1"})[0];
 		my $hbpechr=(split /\s+/,$hbpe{$read_id}{"1"})[0];
 		$idpp{$read_id}="$hupechr"."_$hbpechr";
@@ -64,14 +64,14 @@ for my $read_id(keys %hbpe){
 		$pe_pe_num++;
 	}elsif(exists $huse{$read_id}){
 		if (exists $huse{$read_id}{"1"}){
-			print OUT1 "$read_id"."1\t",$huse{$read_id}{"1"},"\n";
+			print OUT1 "$read_id"."/1\t",$huse{$read_id}{"1"},"\n";
 			my $hupechr=(split /\s+/,$huse{$read_id}{"1"})[0];
 			my $hbpechr=(split /\s+/,$hbpe{$read_id}{"1"})[0];
 			$idpp{$read_id}="$hupechr"."_$hbpechr";
 		}else{
-			print OUT1 "$read_id"."2\t",$huse{$read_id}{"2"},"\n";
+			print OUT1 "$read_id"."/2\t",$huse{$read_id}{"2"},"\n";
 			my $hupechr=(split /\s+/,$huse{$read_id}{"2"})[0];
-                        my $hbpechr=(split /\s+/,$hbpe{$read_id}{"2"})[0];
+            my $hbpechr=(split /\s+/,$hbpe{$read_id}{"2"})[0];
 			$idpp{$read_id}="$hupechr"."_$hbpechr";
 
 		}
@@ -90,12 +90,12 @@ my ($se_pe_num,$se_se_num,$se_un_num)=(0,0,0);
 for my $id (keys %hbse){
 	if (exists $hupe{$id}){
 		if (exists $hbse{$id}{"1"}){
-			print OUT1 "$id"."2\t",$hupe{$id}{"2"},"\n";
+			print OUT1 "$id"."/2\t",$hupe{$id}{"2"},"\n";
 			my $hupechr=(split /\s+/,$hupe{$id}{"2"})[0];
 			my $hbpechr=(split /\s+/,$hbse{$id}{"1"})[0];
 			$idpp{$id}="$hupechr"."_$hbpechr";
 		}else{
-			print  OUT1 "$id"."1\t",$hupe{$id}{"1"},"\n";
+			print  OUT1 "$id"."/1\t",$hupe{$id}{"1"},"\n";
 			my $hupechr=(split /\s+/,$hupe{$id}{"1"})[0];
 			my $hbpechr=(split /\s+/,$hbse{$id}{"2"})[0];
 			$idpp{$id}="$hupechr"."_$hbpechr";
@@ -104,31 +104,31 @@ for my $id (keys %hbse){
 		$se_pe_num++;
 	}elsif(exists $huse{$id}){
 		if (exists $hbse{$id}{"1"}){
-			if(exists $huse{$id}{"2"}){ print OUT2 "$id"."2\t",$huse{$id}{"2"},"\n"}else{ print OUT2 "$id"."2\t",$huse{$id}{"1"},"\n";}
-			print OUT2 "$id"."1\t",$hbse{$id}{"1"},"\n";
+			if(exists $huse{$id}{"2"}){ print OUT2 "$id"."/2\t",$huse{$id}{"2"},"\n"}else{ print OUT2 "$id"."/2\t",$huse{$id}{"1"},"\n";}
+			print OUT2 "$id"."/1\t",$hbse{$id}{"1"},"\n";
 			my $hupechr;
 			if (exists $huse{$id}{"2"}){ $hupechr=(split /\s+/,$huse{$id}{"2"})[0]}else{ $hupechr=(split /\s+/,$huse{$id}{"1"})[0];}
 			my $hbsechr=(split /\s+/,$hbse{$id}{"1"})[0];
 			$idss{$id}="$hupechr"."_$hbsechr";
 		}else{
-			if (exists $huse{$id}{"1"}){ print OUT2 "$id"."1\t",$huse{$id}{"1"},"\n" }else{ print OUT2 "$id"."2\t",$huse{$id}{"2"},"\n";}
+			if (exists $huse{$id}{"1"}){ print OUT2 "$id"."/1\t",$huse{$id}{"1"},"\n" }else{ print OUT2 "$id"."/2\t",$huse{$id}{"2"},"\n";}
 			print OUT2 "$id"."2\t",$hbse{$id}{"2"},"\n";
 			my $hupechr;
 			if (exists $huse{$id}{"1"}){ $hupechr=(split /\s+/,$huse{$id}{"1"})[0]}else{ $hupechr=(split /\s+/,$huse{$id}{"2"})[0];}
 			my $hbsechr=(split /\s+/,$hbse{$id}{"2"})[0];
-                        $idss{$id}="$hupechr"."_$hbsechr";
+            $idss{$id}="$hupechr"."_$hbsechr";
 		}
 		delete $huse{$id};
 		$se_se_num++;
 	}elsif(exists $huun{$id}){
 		if (exists $hbse{$id}{"1"}){
-			print OUT3 "$id"."2\t",$huun{$id}{"2"},"\n";
-			print OUT3 "$id"."1\t",$hbse{$id}{"1"},"\n";
+			print OUT3 "$id"."/2\t",$huun{$id}{"2"},"\n";
+			print OUT3 "$id"."/1\t",$hbse{$id}{"1"},"\n";
 			my $hbsechr=(split /\s+/,$hbse{$id}{"1"})[0];
 			$idbu{$id}="unmap_$hbsechr";
 		}else{
-			print OUT3 "$id"."1\t",$huun{$id}{"1"},"\n";
-			print OUT3 "$id"."2\t",$hbse{$id}{"2"},"\n";
+			print OUT3 "$id"."/1\t",$huun{$id}{"1"},"\n";
+			print OUT3 "$id"."/2\t",$hbse{$id}{"2"},"\n";
 			my $hbsechr=(split /\s+/,$hbse{$id}{"2"})[0];
 			$idbu{$id}="unmap_$hbsechr";
 		}
@@ -151,18 +151,18 @@ for my $id(keys %hbun){
 		$un_pe_num++;
 	}elsif(exists $huse{$id}){
 		if (exists $huse{$id}{"1"}){
-			print OUT4 "$id"."1\t",$huse{$id}{"1"},"\n","$id"."2\t",$hbun{$id}{"2"},"\n";
+			print OUT4 "$id"."/1\t",$huse{$id}{"1"},"\n","$id"."/2\t",$hbun{$id}{"2"},"\n";
 			my $husechr=(split /\s+/,$huse{$id}{"1"})[0];
 			$idhu{$id}="$husechr"."_unmap";
 		}else{
-			print OUT4 "$id"."2\t",$huse{$id}{"2"},"\n","$id"."1\t",$hbun{$id}{"1"},"\n";
+			print OUT4 "$id"."/2\t",$huse{$id}{"2"},"\n","$id"."/1\t",$hbun{$id}{"1"},"\n";
                         my $husechr=(split /\s+/,$huse{$id}{"2"})[0];
                         $idhu{$id}="$husechr"."_unmap";
 		}
 		delete $huse{$id};
 		$un_se_num++;
 	}elsif(exists $huun{$id}){
-		print OUT5 "$id"."1\t",$huun{$id}{"1"},"\n$id"."2\t",$hbun{$id}{"2"},"\n";
+		print OUT5 "$id"."/1\t",$huun{$id}{"1"},"\n$id"."/2\t",$hbun{$id}{"2"},"\n";
 		$un_un_num++;
 		$iduu{$id}="unmap_unmap";
 		delete $huun{$id};
@@ -251,17 +251,17 @@ while (<FQ1>){
 	#	print "$id_fq1_str\n";
 		my $id_fq1 = (split /\s+/, $id_fq1_str)[0];
 	 #   print "$id_fq1\n";
-		(my $id_fq11)=$id_fq1=~m/([12]$)/;
+		(my $id_fq11)=$id_fq1=~m/(\/[12]$)/;
       #  print "$id_fq11\n";
-	    $id_fq1=~s/[12]$//;
+	    $id_fq1=~s/\/[12]$//;
 		my $seq_fq1 = <FQ1>;
 		my $line3_fq1 = <FQ1>;
 		my $qual_fq1 = <FQ1>;
 		my $id_fq2_str = <FQ2>;
 		$id_fq2_str =~ s/^\@//;
 		my $id_fq2 = (split /\s+/, $id_fq2_str)[0];
-	   	(my $id_fq12)=$id_fq2=~m/([12]$)/;
-		$id_fq2=~s/[12]$//;
+	   	(my $id_fq12)=$id_fq2=~m/(\/[12]$)/;
+		$id_fq2=~s/\/[12]$//;
         my $seq_fq2 = <FQ2>;
         my $line3_fq2 = <FQ2>;
         my $qual_fq2 = <FQ2>;
@@ -271,20 +271,20 @@ while (<FQ1>){
 		my $fq1_str = ($id_fq1_str=~/\//) ? "$id_fq1$id_fq11\n".$seq_fq1.$line3_fq1.$qual_fq1 : "$id_fq1\_1\n".$seq_fq1.$line3_fq1.$qual_fq1;
 		my $fq2_str = ($id_fq2_str=~/\//) ? "$id_fq2$id_fq12\n".$seq_fq2.$line3_fq2.$qual_fq2 : "$id_fq2\_2\n".$seq_fq2.$line3_fq2.$qual_fq2;
         if (exists $idpp{$id_fq1}){
-                print PP1 "@"."trim_pe#$idpp{$id_fq1}".$fq1_str;
-                print PP2 "@"."trim_pe#$idpp{$id_fq1}".$fq2_str;
+                print PP1 "@"."trim_pe#$idpp{$id_fq1}_".$fq1_str;
+                print PP2 "@"."trim_pe#$idpp{$id_fq1}_".$fq2_str;
         }elsif(exists $idss{$id_fq1}){
-                print SS1 "@"."trim_pe#$idss{$id_fq1}".$fq1_str;
-                print SS2 "@"."trim_pe#$idss{$id_fq1}".$fq2_str;
+                print SS1 "@"."trim_pe#$idss{$id_fq1}_".$fq1_str;
+                print SS2 "@"."trim_pe#$idss{$id_fq1}_".$fq2_str;
         }elsif(exists $idbu{$id_fq1}){
-                print HBVU1 "@"."trim_pe#$idbu{$id_fq1}".$fq1_str;
-                print HBVU2 "@"."trim_pe#$idbu{$id_fq1}".$fq2_str;
+                print HBVU1 "@"."trim_pe#$idbu{$id_fq1}_".$fq1_str;
+                print HBVU2 "@"."trim_pe#$idbu{$id_fq1}_".$fq2_str;
         }elsif(exists $idhu{$id_fq1}){
-                print HUMAN1 "@"."trim_pe#$idhu{$id_fq1}".$fq1_str;
-                print HUMAN2 "@"."trim_pe#$idhu{$id_fq1}".$fq2_str;
+                print HUMAN1 "@"."trim_pe#$idhu{$id_fq1}_".$fq1_str;
+                print HUMAN2 "@"."trim_pe#$idhu{$id_fq1}_".$fq2_str;
         }elsif(exists $iduu{$id_fq1}){
-                print UNUN1 "@"."trim_pe#$iduu{$id_fq1}".$fq1_str;
-                print UNUN2 "@"."trim_pe#$iduu{$id_fq1}".$fq2_str;
+                print UNUN1 "@"."trim_pe#$iduu{$id_fq1}_".$fq1_str;
+                print UNUN2 "@"."trim_pe#$iduu{$id_fq1}_".$fq2_str;
         }
 }
 close SS1;
@@ -324,7 +324,7 @@ sub read_pese{
 		if($unq>1 and $ter eq "human"){						# filter non-uniq alignment
 			next;
 		}
-		$soap_id=~s/[12]$//;
+		$soap_id=~s/\/[12]$//;
 		my $read_order_ts = ($read_order eq "a") ? "1" : "2";
 		$$hash{$soap_id}{$read_order_ts}="$chr\t$align_pos";
 	}
@@ -344,7 +344,7 @@ sub read_un{
 		my $id_str = $_;
 		$id_str=~s/^>//;
 		<IN>;
-		$id_str=~s/[12]$//;
+		$id_str=~s/\/[12]$//;
 #		print "$_\t$id\n";
 		if ($id_str eq $last_id){
 			$$hash{$id_str}{"1"}=1;

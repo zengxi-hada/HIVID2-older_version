@@ -135,8 +135,8 @@ while (<FQ1>){
 		$id_fq1_str =~ s/^\@//;
 	#	my $id_fq1 = (split /\s+/, $id_fq1_str)[0];
         my $id_fq1 = (split /\s+/, $id_fq1_str)[0];
-		(my $id_fq11)=$id_fq1=~m/([12]$)/;
-		$id_fq1=~s/[12]$//;
+		(my $id_fq11)=$id_fq1=~m/(\/[12]$)/;
+		$id_fq1=~s/\/[12]$//;
        # print "$id_fq11\n";
       #  $id_fq1=~s/[12]$//;
         my $seq_fq1 = <FQ1>;
@@ -174,7 +174,7 @@ sub read_pese{
 		if($unq>1 and $ter eq "human"){
 			next;
 		}
-		$soap_id=~s/[12]$//;
+		$soap_id=~s/\/[12]$//;
 		$$hash{$soap_id} = "$chr\t$align_pos";
 	}
 	close IN;
@@ -191,7 +191,7 @@ sub read_un{
 	while(<IN>){
 		chomp;
 		$_=~s/^>//;
-		$_=~s/[12]$//;
+		$_=~s/\/[12]$//;
 		my $id = $_;
 		<IN>;						# skip the sequence line
 		$$hash{$id}=1;

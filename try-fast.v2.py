@@ -68,6 +68,7 @@ def get_seq(file1,file2,id_list):
 	cmd2="zcat "+file2+" | /public/home/xzeng/bin/BGI_bin/HPV/norm_hpv/update/HZAU1_HIVID2.1/seqkit grep -f "+tmp+" -o "+tmp_o2
 	os.system(cmd1)
 	os.system(cmd2)
+	os.remove(tmp)
 	#handle=os.system("zcat file1 | ~/tools/seqkit grep -f temp")
 	#handle = gzip.open("tmp.fq", "r")
 	#record = (r1 for r1 in SeqIO.parse(handle, "fastq") if r1.id in id_list)
@@ -122,10 +123,10 @@ def clean_readID(read_id,ref_list):
 		read_id=read_id[0:-2]
 	else:
 		read_id=read_id
-	read_id=read_id.replace("left_","").replace("trim_pe#","").replace("trim_se#","").replace("unmap","")
+	read_id=read_id.replace("left_","").replace("trim_pe#","").replace("trim_se#","").replace("unmap_","")
 	for i in ref_list:
 		read_id=read_id.replace(i,"")
-	read_id=read_id.replace("_","")
+#	read_id=read_id.replace("_","")
 	return read_id
 
 
@@ -140,7 +141,7 @@ with open (cmd_args.i,"r") as infile:
 	with open (cmd_args.o,"w") as outfile:
 		for line in infile:
 			line=line.strip("\n")
-			print line
+##			print line
 			line=line.strip("\n").split("\t")
 			if line[0] !="ref":
 				#left_reads_ID
@@ -197,6 +198,35 @@ with open (cmd_args.i,"r") as infile:
 						uniq_id_list2=get_uniq(dic1,dic2)
 						uniq_read2=len(uniq_id_list2)
 				#discordant_reads_ID (zengxi)
+				if line[-1] == "0":
+					uniq_read3=0
+					uniq_id_list3=["0"]
+					raw_id_list3["0"]="0"
+##					print "zero";
+				else:
+					disc_reads_ID=line[-1].split(",")					#discrodant reads ID
+					if len(disc_reads_ID) == 0:
+						print "error,file without right_reads_ID.\n"
+						break
+##						print disc_reads_ID
+					elif len(disc_reads_ID) == 1:
+						uniq_id_list3=[disc_reads_ID[0]]
+						uniq_read3=1
+						raw_id_list3[disc_reads_ID[0]]=disc_reads_ID[0]
+##						print disc_reads_ID[0]
+					else:
+						id_list3=[]
+						for ids3 in disc_reads_ID:
+							clean_id3=clean_readID(ids3,ref_list)
+							id_list3.append(clean_id3)
+							raw_id_list3[clean_id3]=ids3
+##							print ids3
+						#print id_list3
+						uniq_list=[]
+						dic1,dic2=get_seq(cmd_args.fq1,cmd_args.fq2,id_list3)
+						uniq_id_list3=get_uniq(dic1,dic2)
+						uniq_read3=len(uniq_id_list3)
+	
 				#print uniq_id_list1
 				output1="\t".join(line[0:2])
 				left_support=str(uniq_read1)
