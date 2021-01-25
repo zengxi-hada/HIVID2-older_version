@@ -115,6 +115,8 @@ Note: If you want to get the graph one by one, please separate the script and ch
 
 (2) There is a file named "tfbsConsSites.txt" in the advanced analysis. This file cannot be uploaded onto github due to the size limitation. But the user could download this file from Table browser of UCSC.
 
+(3) HIVID2 works quite well for virus-capture sequencing data. For WGS data, the users may need to separate the fastq data into several parts before input into HIVID2 for step1,step2 and step3; then the users can merge the data of step3 for the separated parts to run step4. For WGS data, the users could alternatively first remove human reads or HBV reads before running HIVID2. 
+
 
 # 5. Citation
 Xi Zeng, Linghao Zhao, Chenhang Shen, Yi Zhou, Guoliang Li, Wing-Kin Sung, HIVID2: an accurate tool to detect virus integrations in the host genome, Bioinformatics, 2021, btab031, https://doi.org/10.1093/bioinformatics/btab031
