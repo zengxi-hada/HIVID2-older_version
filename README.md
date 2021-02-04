@@ -7,7 +7,7 @@ The users should install the packages used in perl and python programs, such as 
 ## 2.1 The main program: main.pl
 
 ## 2.2 Parameters
--o	output directory path
+-o	output directory path\n
 -l	a file containing sample_id, library_id and FC_id
 -stp step number (1/2/3/4)
 -c	parameter configuration file
