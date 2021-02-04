@@ -7,11 +7,11 @@ The users should install the packages used in perl and python programs, such as 
 ## 2.1 The main program: main.pl
 
 ## 2.2 Parameters
--o	output directory path\r
--l	a file containing sample_id, library_id and FC_id
--stp step number (1/2/3/4)
--c	parameter configuration file
--filter	whether to filter the repeated comparison reads. Here, only the repeated comparison reads on the human genome are filtered. The repeated comparison reads on the HBV genome are not filtered. However, in the result, the reads of repeated alignments on the HBV genome will be discarded, and the only aligned reads on the corresponding human genome will be retained.
+-o	output directory path  
+-l	a file containing sample_id, library_id and FC_id  
+-stp step number (1/2/3/4)  
+-c	parameter configuration file  
+-filter	whether to filter the repeated comparison reads. Here, only the repeated comparison reads on the human genome are filtered. The repeated comparison reads on the HBV genome are not filtered. However, in the result, the reads of repeated alignments on the HBV genome will be discarded, and the only aligned reads on the corresponding human genome will be retained.  
 
 ## 2.3 Description of several predefinding files
 ### (1) -C    the Configure file
