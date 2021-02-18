@@ -12,6 +12,7 @@ The users should install the packages used in perl and python programs, such as 
 **-stp**   step number (1/2/3/4)  
 **-c**	   parameter configuration file  
 **-filter**	   whether to filter the repeated comparison reads. Here, only the repeated comparison reads on the human genome are filtered. The repeated comparison reads on the HBV genome are not filtered. However, in the result, the reads of repeated alignments on the HBV genome will be discarded, and the only aligned reads on the corresponding human genome will be retained.  
+**-f**     this parameter is currently useless，please do not use it.
 
 ## 2.3 Description of several predefinding files
 ### (1) -C    the Configure file
@@ -31,7 +32,7 @@ SRR12345  SRR12345  SRR12345
 
 ### 1st step
 
-Manually create a file named "list" in the output directory. Then manually create a folder named step1, and create a file named sample.list in folder step1. The location of sample.list should be step1/sample.list. Note that the path in the sample.list should be absolute full path and the word in the first four columns should be the same as that in the file "list". Below is an example of sample.list:
+Manually create a file named "list" in the output directory. Then manually create a folder named step1, and create a file named sample.list in folder step1. The location of sample.list should be step1/sample.list. Note that the path in the sample.list should be absolute full path and the word in the first four columns should be the same as that in the file "list". Please note that step1 is all done by hand and do not use main.pl in this step. Below is an example of sample.list:
 
 Sample  FC  Lane  Libray  read_length library_size  
 SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/bkread1.fq.gz /absolute_path/bkread2.fq.gz
