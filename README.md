@@ -15,7 +15,12 @@ The users should install the packages used in perl and python programs, such as 
 
 ## 2.3 Description of several predefinding files
 ### (1) -C    the Configure file
-This configure file difined the referece genomes and alignment parameters used in step3. The users can make their own configure file. But we have involved some configure files which is named as Config* in the same folder of main.pl.
+This configure file difined the referece genomes and alignment parameters used in step3. The users can make their own configure file. But we have involved some configure files which is named as Config* in the same folder of main.pl. Below is the description of the configuration file:  
+soap: the path of the soap2 program  
+ref_virus: the path of soap2 index of virus reference genome  
+ref_human: the path of soap2 index of human reference genome  
+insert_sd: the standard deviation of the insert size for the sequencing library  
+virus_config: the parameters of soap2 corresponding to different read length; for example, "150;150:-l 50 -v 5 -r 1" means when the read length is 150 bps, then soap2 will use the parameter "-l 50 -v 5 -r 1"; please note that read length is set at sample.list under the folder step1.  
 
 ### (2) -l	  a file containing sample_id, library_id and FC_id
 It can be named as any name and simply write as the sample name in three column. For example, a file named "list" and contain a line with three columns:
