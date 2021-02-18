@@ -10,7 +10,7 @@ my $bin=dirname (abs_path ($0));
 
 =head1 function
   
-  This program is designed to autorun BWASW and to grab breakpoint from the result of BWASW. The memory used is around 4.5g.
+  This program is designed to autorun BWA-MEM and to grab breakpoint from the result of BWA-MEM.
 
 =head1 usage
   
@@ -33,12 +33,13 @@ my $bin=dirname (abs_path ($0));
 
 =head1 author 
   
-  zengxi@genomics.org.cn
+  zengxi
 
 =head1 version
 
   version1.0: 2011-11-10
   version1.2: 2012-04-06
+  version2.0: 2021-02-18
 
 =cut	
 
@@ -103,7 +104,7 @@ my $circos_input_for_cluster = "$bin/circos_input_for_cluster.pl";
 my $hg19_info = "$bin/hg19.info";
 my $rm_pcr_dup = "$bin/restrict_rm_dup_only_consider_human-align_HZAU.pl";
 my $check_chimera = "$bin/check_chimera.pl";
-my $rm_pcr_dup_again = "$bin/try-fast.py";  #writen by zhouyi
+my $rm_pcr_dup_again = "$bin/try-fast.v2.py";  #writen by zhouyi
 
 mkdir $outdir if (not -e $outdir);
 my $basename;
