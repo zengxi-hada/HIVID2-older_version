@@ -19,17 +19,17 @@ This configure file difined the referece genomes and alignment parameters used i
 
 ### (2) -l	  a file containing sample_id, library_id and FC_id
 It can be named as any name and simply write as the sample name in three column. For example, a file named "list" and contain a line with three columns:
-SRR12345 SRR12345 SRR12345
+SRR12345  SRR12345  SRR12345
 
 
 ## 2.4 Step to step tutorial
 
 ### 1st step
 
-Manually create a file named "list" in the output directory. Then manually create a folder named step1, and create a file named sample.list in folder step1. The location of sample.list should be step1/sample.list. Note that the path in the sample.list should be absolute full path. Below is an example of sample.list:
+Manually create a file named "list" in the output directory. Then manually create a folder named step1, and create a file named sample.list in folder step1. The location of sample.list should be step1/sample.list. Note that the path in the sample.list should be absolute full path and the word in the first four columns should be the same as that in the file "list". Below is an example of sample.list:
 
 Sample  FC  Lane  Libray  read_length library_size  
-simdata simdata simdata simdata 110;110 170 /absolute_path/bkread1.fq.gz /absolute_path/bkread2.fq.gz
+SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/bkread1.fq.gz /absolute_path/bkread2.fq.gz
 
 ### 2nd step
 
