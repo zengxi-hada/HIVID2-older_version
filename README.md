@@ -2,11 +2,14 @@
 Download all the files into one folder and run main.pl using "perl /absolute_path_of_main.pl/main.pl parameter1 parameter2 parameter3 ......".
 The users should install the packages used in perl and python programs, such as PerlIO::gzip, Getopt::Long, File::Basename, etc.
 
-# 2. A Step-to-step protocol of the HIVID2 pipeline 
+# 2. One demo
+A demo has been uploaded. Users can download the file "demo.rar" and unzip it. We have add an file named "used.cml" in each folder. used.cml contains the command lines used in that folder. Please note that users should replace the absolute path of all the files in each script to run the demo. 
 
-## 2.1 The main program: main.pl
+# 3. A Step-to-step protocol of the HIVID2 pipeline 
 
-## 2.2 Parameters
+## 3.1 The main program: main.pl
+
+## 3.2 Parameters
 **-o**	   output directory path  
 **-l**	   a file containing sample_id, library_id and FC_id  
 **-stp**   step number (1/2/3/4)  
@@ -14,21 +17,21 @@ The users should install the packages used in perl and python programs, such as 
 **-filter**	   whether to filter the repeated comparison reads. Here, only the repeated comparison reads on the human genome are filtered. The repeated comparison reads on the HBV genome are not filtered. However, in the result, the reads of repeated alignments on the HBV genome will be discarded, and the only aligned reads on the corresponding human genome will be retained.  
 **-f**     this parameter is currently useless，please do not use it.
 
-## 2.3 Description of several predefinding files
+## 3.3 Description of several predefinding files
 ### (1) -C    the Configure file
 This configure file difined the referece genomes and alignment parameters used in step3. The users can make their own configure file. But we have involved some configure files which is named as Config* in the same folder of main.pl. Below is the description of the configuration file:  
 soap: the path of the soap2 program  
 ref_virus: the path of soap2 index of virus reference genome  
 ref_human: the path of soap2 index of human reference genome  
 insert_sd: the standard deviation of the insert size for the sequencing library  
-virus_config: the parameters of soap2 corresponding to different read length; for example, "150;150:-l 50 -v 5 -r 1" means when the read length is 150 bps, then soap2 will use the parameter "-l 50 -v 5 -r 1"; please note that read length is set at sample.list under the folder step1.  
+virus_config: the parameters of soap2 corresponding to different read length; for example, "150;150:-l 50 -v 5 -r 1" means when the read length is 150 bps, then soap2 will use the parameter "-l 50 -v 5 -r 1"; please note that read length is set at sample.list under the folder step1.
 
 ### (2) -l	  a file containing sample_id, library_id and FC_id
 It can be named as any name and simply write as the sample name in three column. For example, a file named "list" and contain a line with three columns:
 SRR12345  SRR12345  SRR12345
 
 
-## 2.4 Step to step tutorial
+## 3.4 Step to step tutorial
 
 ### 1st step
 
@@ -67,7 +70,7 @@ Note:
   
 
 
-## 2.5 Result file and the format descript
+## 3.5 Result file and the format descript
 
 The path of the files of final results:
 
@@ -102,7 +105,7 @@ Format description of the result file:
 12th column is reads id of right support reads
 
 
-# 3. Advanced analysis
+# 4. Advanced analysis
 
 After obtaining the integration sites, HIVID2 allows the user to decide whether to automatically perform advanced analysis using the identified virus integrations. 
 
@@ -116,7 +119,7 @@ Rscript xxx.R
 
 Note: If you want to get the graph one by one, please separate the script and change parameters. You can also run it line by line, and modify the parameters by yourself. 
 
-# 4. Other tips
+# 5. Other tips
 (1) In order to help the users to track the data processing, HIVID2 retained some intermediate procedure files during running of the pipeline. It may cause big hard disk consuming when deal with large amount of data such as WGS data. Fortunately, The users can can remove most of intermediate files of previous steps when running step4. When running step4, the user can remove all the files named "*paired.gz" and "*unpaired.gz" in step2, all the files named "*soap.gz" in step2. After completing step4, all the files except the files of final results could be deleted. But before deleting, the users should make sure they don't need them later.
 
 (2) There is a file named "tfbsConsSites.txt" in the advanced analysis. This file cannot be uploaded onto github due to the size limitation. But the user could download this file from Table browser of UCSC.
@@ -124,5 +127,5 @@ Note: If you want to get the graph one by one, please separate the script and ch
 (3) HIVID2 works quite well for virus-capture sequencing data. For WGS data, sometimes the used memory might be too large. In this case, the users may need to separate the fastq data into several parts before input into HIVID2 for step1,step2 and step3; then the users can merge the data of step3 for the separated parts to run step4. For WGS data, the users could alternatively first remove human reads or HBV reads before running HIVID2. 
 
 
-# 5. Citation
+# 6. Citation
 Xi Zeng, Linghao Zhao, Chenhang Shen, Yi Zhou, Guoliang Li, Wing-Kin Sung, HIVID2: an accurate tool to detect virus integrations in the host genome, Bioinformatics, 2021, btab031, https://doi.org/10.1093/bioinformatics/btab031
