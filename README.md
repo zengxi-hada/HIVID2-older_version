@@ -35,7 +35,7 @@ SRR12345  SRR12345  SRR12345
 
 ### 1st step
 
-Manually create a file named "list" in the output directory. Then manually create a folder named step1, and create a file named sample.list in folder step1. The location of sample.list should be step1/sample.list. Note that the path in the sample.list should be absolute full path and the word in the first four columns should be the same as that in the file "list". Please note that step1 is all done by hand and do not use main.pl in this step. Below is an example of sample.list:
+Manually create a file named "list" in the output directory. Then manually create a folder named step1, and create a file named sample.list in folder step1. The location of sample.list should be step1/sample.list. Note that the path in the sample.list should be absolute full path and the word in the first four columns should be the same as that in the file "list". Please note that step1 is all done by hand and do not use main.pl in this step.  Below is an example of sample.list:
 
 Sample  FC  Lane  Libray  read_length library_size  
 SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/bkread1.fq.gz /absolute_path/bkread2.fq.gz
@@ -122,9 +122,11 @@ Note: If you want to get the graph one by one, please separate the script and ch
 # 5. Other tips
 (1) In order to help the users to track the data processing, HIVID2 retained some intermediate procedure files during running of the pipeline. It may cause big hard disk consuming when deal with large amount of data such as WGS data. Fortunately, The users can can remove most of intermediate files of previous steps when running step4. When running step4, the user can remove all the files named "*paired.gz" and "*unpaired.gz" in step2, all the files named "*soap.gz" in step2. After completing step4, all the files except the files of final results could be deleted. But before deleting, the users should make sure they don't need them later.
 
-(2) There is a file named "tfbsConsSites.txt" in the advanced analysis. This file cannot be uploaded onto github due to the size limitation. But the user could download this file from Table browser of UCSC.
+(2) About setting the length in sample.list: It is OK to set the length based on the raw reads, But it will be better set the reads length after removing the adapter. Actually, users can set the read length in sample.list after completing step2 because this value of length will not be used in step2 but used in step3.
 
-(3) HIVID2 works quite well for virus-capture sequencing data. For WGS data, sometimes the used memory might be too large. In this case, the users may need to separate the fastq data into several parts before input into HIVID2 for step1,step2 and step3; then the users can merge the data of step3 for the separated parts to run step4. For WGS data, the users could alternatively first remove human reads or HBV reads before running HIVID2. 
+(3) There is a file named "tfbsConsSites.txt" in the advanced analysis. This file cannot be uploaded onto github due to the size limitation. But the user could download this file from Table browser of UCSC.
+
+(4) HIVID2 works quite well for virus-capture sequencing data. For WGS data, sometimes the used memory might be too large. In this case, the users may need to separate the fastq data into several parts before input into HIVID2 for step1,step2 and step3; then the users can merge the data of step3 for the separated parts to run step4. For WGS data, the users could alternatively first remove human reads or HBV reads before running HIVID2. 
 
 
 # 6. Citation
