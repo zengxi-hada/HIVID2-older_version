@@ -5,7 +5,14 @@ use File::Basename;
 use Cwd 'abs_path';
 my $bin=dirname (abs_path ($0));
 
-my $usage="perl $0 -o <out dir> -step <1 | 2 | 3> -list <FC Insertsize list> -c <config file> -f <the number of fqdata you want to find [10-37]> -filter <whether filter nounique align to human> -qsub -vf <RAM> -help\n";
+############################################################################################################
+##	This program is to generate the folders and shell scripts for running step2	and step3				####
+##  Author: Yi Shang 																					####
+##			Zeng Xi																						####
+##	Last update: 2020-12																				####
+############################################################################################################
+
+my $usage="perl $0 -o <out dir> -step <2 | 3> -list <FC Insertsize list> -c <config file> -f <the number of fqdata you want to find [10-37]> -filter <whether filter nounique align to human> -qsub -vf <RAM> -help\n";
 my ($out,$step,$list,$con,$find,$qsub,$vf,$help,$filter);
 GetOptions (
 	'o=s'=>\$out,				# output directory
@@ -69,8 +76,8 @@ if ($step==1){
 		open OUTSH,">$step2dir/$sample_name/trimmomatic.sh" or die $!;
 		print OUTSH "#!/bin/bash\n#PBS -N trimmomatic.sh\n#PBS -l nodes=1:ppn=5\n#PBS –l walltime=100:00:00\n#PBS –l mem=10G\n#PBS -q batch\n#PBS -V\ncd \$PBS_O_WORKDIR\n";
 	    print OUTSH "date\n";
-		print OUTSH "java -jar /public/home/xzeng/bin/BGI_bin/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 $a[-2] $a[-1] $step2dir/$sample_name/$base_name1.trimmo.paired.gz $step2dir/$sample_name/$base_name1.trimmo.unpaired.gz $step2dir/$sample_name/$base_name2.trimmo.paired.gz $step2dir/$sample_name/$base_name2.trimmo.unpaired.gz ILLUMINACLIP:/public/home/xzeng/bin/BGI_bin/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60\n";
-		print OUTSH "java -jar /public/home/xzeng/bin/BGI_bin/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 $a[-2] $a[-1] $step2dir/$sample_name/$base_name1.trimmo.paired1.gz $step2dir/$sample_name/$base_name1.trimmo.unpaired1.gz $step2dir/$sample_name/$base_name2.trimmo.paired1.gz $step2dir/$sample_name/$base_name2.trimmo.unpaired1.gz ILLUMINACLIP:/public/home/xzeng/bin/BGI_bin/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:0 TRAILING:0 SLIDINGWINDOW:4:0\n";		print OUTSH "date\n";
+		print OUTSH "java -jar $bin/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 $a[-2] $a[-1] $step2dir/$sample_name/$base_name1.trimmo.paired.gz $step2dir/$sample_name/$base_name1.trimmo.unpaired.gz $step2dir/$sample_name/$base_name2.trimmo.paired.gz $step2dir/$sample_name/$base_name2.trimmo.unpaired.gz ILLUMINACLIP:/public/home/xzeng/bin/BGI_bin/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60\n";
+		print OUTSH "java -jar $bin/Trimmomatic-0.39/trimmomatic-0.39.jar PE -phred33 $a[-2] $a[-1] $step2dir/$sample_name/$base_name1.trimmo.paired1.gz $step2dir/$sample_name/$base_name1.trimmo.unpaired1.gz $step2dir/$sample_name/$base_name2.trimmo.paired1.gz $step2dir/$sample_name/$base_name2.trimmo.unpaired1.gz ILLUMINACLIP:/public/home/xzeng/bin/BGI_bin/Trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10 LEADING:0 TRAILING:0 SLIDINGWINDOW:4:0\n";		print OUTSH "date\n";
 ##		chdir $step2dir;
 ##		`qsub $step2dir/trimmomatic.sh`;
 ##		my $trimmomatic_log = `ls $step2dir/trimmomatic.sh.e*`;

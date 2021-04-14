@@ -1,5 +1,12 @@
 #!usr/bin/perl -w
 
+#############################################################################################################
+###  This program is to generate the folders and shell scripts for running step3              			 ####
+###  Author: Yi Shang                                                                                    ####
+###          Zeng Xi                                                                                     ####
+###  Last update: 2020-12                                                                                ####
+#############################################################################################################
+
 use strict;
 use Getopt::Long;
 use PerlIO::gzip;
