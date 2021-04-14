@@ -53,9 +53,9 @@ Note: 1) After running this command, the directory for each sample will be gener
 perl /absolute_path_of_main.pl/main.pl -o <output directory> -l <sample list> -stp 3 -c configuration_file
   Example: perl main.pl -o test2 -l list -c ConfigHPV_19 -stp 3
   
-Note: 1) After running this command, a folder named after the sample name will be automatically generated in step3 folder. In each sample folder, there are three scripts Human_virus_soap.sh and station.sh. These scripts could be manually delivered to the sge system using qsub. The user should run Human_virus_soap.sh first before running station.sh.
+Note: (1) After running this command, a folder named after the sample name will be automatically generated in step3 folder. In each sample folder, there are three scripts Human_virus_soap.sh and station.sh. These scripts could be manually delivered to the sge system using qsub. The user should run Human_virus_soap.sh first before running station.sh.
 
-2) Run Dataproduction.sh manually to get the data production report including the data amount, data quality, sequence alignment profiles.
+  (2) Run Dataproduction.sh manually to get the data production report including the data amount, data quality, sequence alignment profiles.
 
 ### 4th step
 
