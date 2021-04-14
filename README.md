@@ -128,6 +128,9 @@ Note: If you want to get the graph one by one, please separate the script and ch
 
 (4) HIVID2 works quite well for virus-capture sequencing data. For WGS data, sometimes the used memory might be too large. In this case, the users may need to separate the fastq data into several parts before input into HIVID2 for step1,step2 and step3; then the users can merge the data of step3 for the separated parts to run step4. For WGS data, the users could alternatively first remove human reads or HBV reads before running HIVID2. 
 
+(5) The programs of soap2 are also uploaded in this repository. The method of buliding index of soap2 is as following:
+    2bwt-builder xx.fa
+
 
 # 6. Citation
 Xi Zeng, Linghao Zhao, Chenhang Shen, Yi Zhou, Guoliang Li, Wing-Kin Sung, HIVID2: an accurate tool to detect virus integrations in the host genome, Bioinformatics, 2021, btab031, https://doi.org/10.1093/bioinformatics/btab031
