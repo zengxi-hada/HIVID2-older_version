@@ -2,6 +2,13 @@
 use strict;
 use Getopt::Long;
 use PerlIO::gzip;
+
+############################################################################################################
+#### This program is to cluster the discrodant reads(paired reads) that support the breakpoint			####
+#### Author: zeng xi																					####
+#### Last update: 2020-12																				####
+############################################################################################################
+
 my $usage="perl $0 -i <se_se file> -h <human_un file> -l <gap length> -o <output>";
 my ($in,$len,$human,$out);
 GetOptions (

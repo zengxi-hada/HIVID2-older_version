@@ -3,9 +3,11 @@ use strict;
 use Getopt::Long;
 use File::Basename;
 use PerlIO::gzip;
-###
+
 #####################################################################################################################################
 ### this program is to extract the paired reads which may contain virus DNA based on soap results for reads after timmomatics #######
+###	Author: Yi Shang																										  #######
+###			Zeng Xi																											  #######
 #####################################################################################################################################
 
 my $usage="perl $0 -hp <human soap PE> -hs <human soap SE> -hu <human soap unmap> -bp <HBV soap PE> -bs <HBV soap SE> -bu < HBV soap unmap> -pe < out PE_PE > -se <out SE_SE> -sb<out HBV_UN> -sh <out human_UN> -un <out UN_UN> -stat <out stat file> -f1 <read1> -f2 <read2> -o <read file dir> -filter <whether filter non-unique human alignment>\n";

@@ -12,9 +12,11 @@ my $distance = shift;
 
 die "perl $0 <initialized breakpoint file> <style_box.stat> <out.bk.final> <out file of effected fragment percentage> [\$boole](output effected fragment percentage or not, y or n) <consistency distance>\n" unless ($infile && $outfile && $stat && $outeff && $boole && $distance);
 
-###############################################################################################
-#### this program is to merge breakpoints with distance less than 20bps, for example. ##########
-################################################################################################
+########################################################################################################
+#### this program is to merge breakpoints with distance less than 20bps for the virus genome  ##########
+###  Author: zeng xi																		  ##########
+###	 Last update date: 2020-12																  ##########
+########################################################################################################
 
 open IN, $infile or die $!;
 open STAT, $stat or die $!;

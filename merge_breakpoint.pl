@@ -3,6 +3,12 @@
 use strict;
 use warnings;
 
+###############################################################################################################################################################
+#### This program is to cluster reads coverring the virus integration site and report the breakpoints for the virus genome                               ######
+#### Author: zeng xi                                                                                                                                     ######
+#### Last update date: 2020-12                                                                                                                           ######
+###############################################################################################################################################################
+
 my $infile = shift;
 my $stat = shift;
 my $outfile = shift;

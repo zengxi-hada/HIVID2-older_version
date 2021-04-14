@@ -12,6 +12,8 @@ die "perl $0 <mutual sam file> <initialized_bk> <threshold of alignment length i
 
 #######################################################################################################################
 ######## this program is to assign right_support or left_support to each support read of virus integration  ###########
+######## Author: zeng xi																					###########
+######## Last update: 2020-12																				###########
 #######################################################################################################################
 
 open IN, $infile or die $!;

@@ -41,6 +41,9 @@ my $bin=dirname (abs_path ($0));
   version1.2: 2012-04-06
   version2.0: 2021-02-18
 
+=head1 last update
+	2020-12
+
 =cut	
 
 my $fq1;
@@ -171,7 +174,7 @@ print OUT "perl -p -i.bak -w -e 's/^\\\@trim_pe/\\\@left_trim_pe/g' $left_fq1_1 
 print OUT "cat $fq1 $left_fq1_1 $left_fq1_2 $fq2 $left_fq2_1 $left_fq2_2 $fq3 $left_fq3_1 $left_fq3_2 $fq4 $left_fq4_1 $left_fq4_2 $fq5 $fq6 $fq7 > $outdir/fq/$basename.fq\n";  ###  modify at 22:02 2019-06-05
 
 print OUT "echo \"##  gzip the merged fq file and remove duplication again\" >&2\n";  ### modify at 15:21 2012-02-19
-print OUT "gzip  -f $outdir/fq/$basename.fq\n";                                           ### modify at 15:21 2012-02-19
+print OUT "gzip $outdir/fq/$basename.fq\n";
 print OUT "perl $rm_dup -a1 $outdir/fq/$basename.fq.gz -o $outdir/fq\n";      ### modify at 15:21 2012-02-19
 
 print OUT "echo \"##  align the treated fq file with BWA-MEM\" >&2\n";
@@ -243,7 +246,8 @@ print OUT "perl $merge_bk_forHuman_sm $outdir/human/breakpoint/chimera.$basename
 print OUT "perl $rm_pcr_dup $outdir/human/breakpoint/chimera.$basename\_human_bk.final.stp2 $outdir/virus/breakpoint/chimera.$basename\_virus_bk.final.stp2 $outdir/human/human_$basename.uniq_map.sam $outdir/virus/virus_$basename.sam $outdir/human/breakpoint/chimera.$basename\_human_bk.final.stp2.uniq $outdir/virus/breakpoint/chimera.$basename\_virus_bk.final.stp2.uniq\n\n";
 
 print OUT "$samtools view -b -h -S $outdir/virus/virus_$basename.sam -o $outdir/virus/virus_$basename.bam; $samtools view -b -h -S $outdir/human/human_$basename.sam -o $outdir/human/human_$basename.bam; $samtools view -b -h -S $outdir/human/human_$basename.uniq_map.sam -o $outdir/human/human_$basename.uniq_map.bam\n";
-print OUT "rm -f $outdir/virus/virus_$basename.sam $outdir/human/human_$basename.sam $outdir/human/human_$basename.uniq_map.sam $outdir/fq/$basename\_human_un.fq $outdir/fq/$basename\_hbv_un.fq $outdir/fq/$basename\_un_un.fq $outdir/fq/$basename\_se_se.fq \n\n";
+print OUT "rm -f $outdir/virus/virus_$basename.sam $outdir/human/human_$basename.sam $outdir/human/human_$basename.uniq_map.sam $outdir/fq/$basename\_human_un.fq $outdir/fq/$basename\_hbv_un.fq $outdir/fq/$basename\_un_un.fq $outdir/fq/$basename\_se_se.fq $outdir/fq/$basename.fq.gz $outdir/fq/sort_$basename.fq\n";
+print OUT "gzip $dir_fq1/* $dir_fq2/* $dir_fq3/* $dir_fq4/*\n\n";
 
 
 print OUT "date >&2\n";

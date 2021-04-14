@@ -6,6 +6,7 @@ use PerlIO::gzip;
 
 #####################################################################################################################################
 ### this program is to extract the reads which may contain virus DNA based on soap results of unpaired reads after trimmomatic ######
+###	Autor: Zeng Xi																											   ######
 #####################################################################################################################################
 
 my $usage="perl $0 -hs <human soap SE> -hu <human soap unmap> -bs <HBV soap SE> -bu < HBV soap unmap> -se <out SE_SE> -sb<out HBV_UN> -sh <out human_UN> -un <out UN_UN> -stat <out stat file> -f1 <read1> -o <read file dir> -filter <whether filter non-unique human alignment>\n";

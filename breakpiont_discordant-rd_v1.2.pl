@@ -6,6 +6,8 @@ use PerlIO::gzip;
 
 ############################################################################################################################################
 ##########   This program is to detect HBV integration breakpoint using discordant paired reads in SOAP mapping results ####################
+##########   Author: Xi Zeng																							####################
+##########	 Time: 2021-04-14																							####################
 ############################################################################################################################################
 
 ################### define the parameters of this program #################
@@ -66,17 +68,23 @@ while(<DS>){
 }
 close DS;
 
-my $tmp_count = 0; my $tmp_norm = 0;
+my $count_line = 0;
+my ($tmp_total_sup, $tmp_norm_total);
 open OBK, ">$obk" or die $!;
 open BK,$bk_file or die "can't open $bk_file\n";
 while (<BK>){
+	$count_line++;
 	chomp;
+	my ($chr,$pos) = (split /\s+/)[0,1];
+    my @a = split;
     if(/left_support/){                                     # treat the header line
 		print OBK "ref\tpos\tleft_support\tright_support\tdiscordant_reads\ttotal_support\tnorm_left\tnorm_right\tnorm_discordant\tnorm_sum\tleft_reads_ID\tright_reads_ID\tdiscordant_reads\n";
-		next;
+		next;                                               # skip the codes below
 	}
-    my ($chr,$pos)=(split /\s+/)[0,1];
-	my @a = split;
+	if($count_line == 2){								# get the normalized record from the first data line
+		$tmp_total_sup = $a[4];								# for calculating norm sum for the bk supported by  discordant reads but not supported by  split reads
+		$tmp_norm_total = $a[7];							# for calculating norm sum for the bk supported by  discordant reads but not supported by  split reads
+	}
 	if(not exists $disc_bk{"$chr\t$pos"}){									# there were no discordant reads mapped on the bk identified by split reads
 		print OBK "$a[0]\t$a[1]\t$a[2]\t$a[3]\tnan\t$a[4]\t$a[5]\t$a[6]\tnan\t$a[7]\t$a[8]\t$a[9]\tnan\n";
 	}else{
@@ -86,8 +94,6 @@ while (<BK>){
 		my $new_norm_sum = ($new_sum_sup/$a[4]) * $a[7];
 		$new_norm_sum = sprintf ("%.3f", $new_norm_sum);
 		print OBK "$a[0]\t$a[1]\t$a[2]\t$a[3]\t$count\t$new_sum_sup\t$a[5]\t$a[6]\tnan\t$new_norm_sum\t$a[8]\t$a[9]\t$reads_str\n";
-		$tmp_norm = $new_norm_sum;									# for calculating norm sum for the bk supported by  discordant reads but not supported by  split reads
-		$tmp_count = $new_sum_sup;									# for calculating norm sum for the bk supported by  discordant reads but not supported by  split reads
 	}
 }
 close BK;
@@ -108,14 +114,12 @@ for my $chr(keys %disc_bk_nosplit){									# merge all bk within a distance of 
 }
 #close OBK;
 
+#print out merged bk only supported by discordant reads
 for my $chr(keys %disc_bk_nosplit){
-	for my $pos(keys %{$disc_bk_nosplit{$chr}}){								#print out merged bk only supported by discordant reads
+	for my $pos(keys %{$disc_bk_nosplit{$chr}}){								
 		my $count = @{$disc_bk_nosplit{$chr}{$pos}};
 		my $new_norm_sum = 0;
-		if($tmp_count != 0){
-			my $new_norm_sum = ($count/$tmp_count) * $tmp_norm;
-		}
-		else {$new_norm_sum = 1;}
+		$new_norm_sum = ($count/$tmp_total_sup) * $tmp_norm_total;
 		$new_norm_sum = sprintf ("%.3f", $new_norm_sum);
 		my $reads_str = join (",", @{$disc_bk_nosplit{$chr}{$pos}});
 		print OBK "$chr\t$pos\tnan\tnan\t$count\t$count\tnan\tnan\t$new_norm_sum\t$new_norm_sum\tnan\tnan\t$reads_str\n";

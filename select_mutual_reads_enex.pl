@@ -3,7 +3,11 @@
 use strict;
 use warnings;
 
+##################################################################################################
 #### this program is to find the reads which can both mapped onto human and virus genome #########
+#### Author: zeng xi																	 #########
+#### Last update: 2020-12																 #########
+##################################################################################################
 
 my $hbv_reads = shift;
 my $human_reads = shift;

@@ -90,7 +90,7 @@ while(<LIST>){
 		$max=$&;
 		$low=$a[2]-$low*1.5;
 		$max=$a[2]+$max*1.5;
-		my $sample="$sam/SOAP";
+		my $sample="$sam/SOAP";									# sample is folder path of the SOAP files
 		`mkdir $sample` if !-d $sample;
 		my $virus_soap_pair="$sample/virus\_$a[0].pair.soap";
 		my $virus_soap_single="$sample/virus\_$a[0].single.soap";
@@ -125,7 +125,7 @@ while(<LIST>){
 		print HUMAN $config{"soap"}," -a $a[-2] -b $a[-1] -D ",$config{"ref_virus"}," -o $virus_soap_pair -2 $virus_soap_single -u $virus_soap_unmap -m $low -x $max -p 8 ", $config{"Human_config"}{$read_len},"\n\n";
 		print HUMAN $config{"soap"}," -a $merge_trimmo_unpaired.gz -D ",$config{"ref_virus"}," -o $virus_soap_se -u $virus_soap_se_unmap -p 8 ",$config{"Human_config"}{$read_len},"\n\n";
 ##		print HUMAN "gzip -f $virus_soap_pair $virus_soap_single $virus_soap_unmap $Human_soap_pair $Human_soap_single $Human_soap_unmap $Human_soap_se $Human_soap_se_unmap $virus_soap_se $virus_soap_se_unmap\n\n";
-		print HUMAN "gzip -f *soap\n\n";
+		print HUMAN "gzip -f $sample/*soap\n\n";
 		print HUMAN "date\n";
 		close HUMAN;
 
