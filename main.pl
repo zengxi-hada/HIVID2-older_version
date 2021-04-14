@@ -10,7 +10,7 @@ my $bin=dirname (abs_path ($0));
 
 =head1 function
 
-  This program is designed to run the flow of virus integration project automatically. In details, it's to detect the integration breakpoints in condition that virus DNA inserts into human genome. The output contains information about position of breakpoints, support reads for both human and virus. etc.
+  This program is designed to run the flow of virus integration project automatically. In details, it's to detect the integration breakpoints in condition that virus DNA inserts into the host genome. The output contains information about position of breakpoints, support reads for both human and virus. etc.
 
 =head1 usage
 
