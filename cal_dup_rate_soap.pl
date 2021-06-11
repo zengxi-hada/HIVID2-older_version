@@ -11,13 +11,19 @@ die "perl $0 <soap.file> <read.len>\n" unless ($soap_file && $sample_list);
 
 my $read_len;
 open SL, $sample_list or die $!;
+my %readlen_sample;
 while(<SL>){
 	next if(/Insertsize/);
 	my @a = split;
+	my $sample_id = $a[0];
 	$read_len = (split /;/, $a[4])[0];
+	$readlen_sample{$sample_id} = $read_len;
 }
 close SL;
 #print "$read_len\n";
+
+
+my ($sample_id) = $soap_file=~/step3\/(\w+)\/SOAP/;
 
 my %h;
 #open SF, $soap_file or die $!;
@@ -41,7 +47,9 @@ while(<SF>){
 #	print "$read_id\t$chr\t$pos\t$len\n";
 #	$h{$read_id} = "$chr\t$pos\t$len" if($len == $read_len);
 	next if ($read_id1 ne $read_id2);
+	$read_len = $readlen_sample{$sample_id};
 	if($read_len==$len1 && $read_len==$len2){
+#	if(141==$len1 && 141==$len2){
 		push @{$h{"$chr1:$pos1:$len1\t$chr2:$pos2:$len2"}}, $read_id1;		# read_id1 = read_id2
 	}
 }

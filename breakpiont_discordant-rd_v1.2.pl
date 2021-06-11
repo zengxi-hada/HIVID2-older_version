@@ -89,11 +89,15 @@ while (<BK>){
 		print OBK "$a[0]\t$a[1]\t$a[2]\t$a[3]\tnan\t$a[4]\t$a[5]\t$a[6]\tnan\t$a[7]\t$a[8]\t$a[9]\tnan\n";
 	}else{
 		my $count = @{$disc_bk{"$chr\t$pos"}};																			# number of discordant reads supporting this bk
+		my $disc_norm = ($count/$a[4]) * $a[7]; 
 		my $reads_str = join (",", @{$disc_bk{"$chr\t$pos"}});															# discordant reads supporting this bk
-		my $new_sum_sup = $a[4] + $count; 
+		my $new_sum_sup = $a[4] + $count;
 		my $new_norm_sum = ($new_sum_sup/$a[4]) * $a[7];
 		$new_norm_sum = sprintf ("%.3f", $new_norm_sum);
-		print OBK "$a[0]\t$a[1]\t$a[2]\t$a[3]\t$count\t$new_sum_sup\t$a[5]\t$a[6]\tnan\t$new_norm_sum\t$a[8]\t$a[9]\t$reads_str\n";
+		print OBK "$a[0]\t$a[1]\t$a[2]\t$a[3]\t$count\t$new_sum_sup\t$a[5]\t$a[6]\t$disc_norm\t$new_norm_sum\t$a[8]\t$a[9]\t$reads_str\n";
+#		print OBK "\$new_sum_sup = \$a[4] + \$count : $a[4]+$count\n";
+#		print OBK "\$a[7] = $a[7]\n";
+#		print OBK "\$new_norm_sum = (\$new_sum_sup/\$a[4]) * \$a[7]:  \$new_norm_sum = ($new_sum_sup/$a[4]) * $a[7] = $new_norm_sum\n";
 	}
 }
 close BK;
