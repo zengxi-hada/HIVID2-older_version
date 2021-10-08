@@ -26,6 +26,7 @@ my %h;
 my %idh;
 my %support;
 my %count_id;
+my $count_line = 0;
 my %left_right;
 my %record_pos;
 my %repeat;
@@ -112,6 +113,10 @@ while(<IN>){
     push @{$idh{$ref}{$pos}{"right"}}, @r_ids;
 }
 close IN;
+
+if($count_line == 0){
+	die "\nno virus integration was found!\n\n";
+}
 
 $max_item =  &max_sup (@tmp_record);
 my $iref = (split /\t/, $max_item)[0];

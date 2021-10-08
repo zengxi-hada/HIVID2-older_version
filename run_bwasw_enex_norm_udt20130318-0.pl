@@ -245,10 +245,9 @@ print OUT "perl $merge_bk_forHBV_sm $outdir/virus/breakpoint/chimera.$basename\_
 print OUT "perl $merge_bk_forHuman_sm $outdir/human/breakpoint/chimera.$basename\_human_bk.final.stp1.sort $stat[0] $outdir/human/breakpoint/chimera.$basename\_human_bk.final.stp2 $outdir/human/breakpoint/chimera.$library_name.eff.stp y 20\n";    ### modify at 14:16 2012-04-06
 print OUT "perl $rm_pcr_dup $outdir/human/breakpoint/chimera.$basename\_human_bk.final.stp2 $outdir/virus/breakpoint/chimera.$basename\_virus_bk.final.stp2 $outdir/human/human_$basename.uniq_map.sam $outdir/virus/virus_$basename.sam $outdir/human/breakpoint/chimera.$basename\_human_bk.final.stp2.uniq $outdir/virus/breakpoint/chimera.$basename\_virus_bk.final.stp2.uniq\n\n";
 
-print OUT "$samtools view -b -h -S $outdir/virus/virus_$basename.sam -o $outdir/virus/virus_$basename.bam; $samtools view -b -h -S $outdir/human/human_$basename.sam -o $outdir/human/human_$basename.bam; $samtools view -b -h -S $outdir/human/human_$basename.uniq_map.sam -o $outdir/human/human_$basename.uniq_map.bam\n";
+print OUT "$samtools view -b -h -S $outdir/virus/virus_$basename.sam -o $outdir/virus/virus_$basename.bam; $samtools view -b -h -S $outdir/human/human_$basename.uniq_map.sam -o $outdir/human/human_$basename.uniq_map.bam\n";
 print OUT "rm -f $outdir/virus/virus_$basename.sam $outdir/human/human_$basename.sam $outdir/human/human_$basename.uniq_map.sam $outdir/fq/$basename\_human_un.fq $outdir/fq/$basename\_hbv_un.fq $outdir/fq/$basename\_un_un.fq $outdir/fq/$basename\_se_se.fq $outdir/fq/$basename.fq.gz $outdir/fq/sort_$basename.fq\n";
 print OUT "gzip $dir_fq1/* $dir_fq2/* $dir_fq3/* $dir_fq4/*\n\n";
-
 
 print OUT "date >&2\n";
 print OUT "echo \"All work has done!\" >&2\n";

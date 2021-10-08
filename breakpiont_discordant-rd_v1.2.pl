@@ -24,14 +24,20 @@ die $usage if !$disc | !$ods | !$obk | !$bk_file | !$len;
 
 ######### read in the breakpoint file from step4 and associate with se_se file ##########
 my %bk;
+my $count_bk = 0;
 open BK,$bk_file or die "can't open $bk_file\n";
 while (<BK>){
 	next if /left_support/;										# skip the header line
+	$count_bk++;
 	chomp;
 	my ($chr,$pos)=(split /\s+/)[0,1];
 	$bk{$chr}{$pos} = 1;										# record the breakpoint for subsequent use; "1" can be replaced by any character
 }
 close BK;
+
+if($count_bk == 0){
+	die "\nno virus integration was found!\n\n";
+}
 
 #################### read in the se_se file containing the discordant reads #####################
 my %discordant;
