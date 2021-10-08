@@ -120,7 +120,7 @@ Note: If you want to get the graph one by one, please separate the script and ch
  
 (6) It should be noted that there are a file named "ref.list" in the same folder of main.pl. "ref.list" must contain all the ID of reference genomes used in the sequence alignment of step3 and step4, or the user will get error or uncompleted results in *human_bk.final.stp2.uniq2.final during the procedure of deep removing PCR-duplications in step4. We have involved some predefined reference names in ref.list, but the users should add the references names used in their own experiments. In the ref.list, each ID should be followed by an underline, for example "chr1_".
 
-(7) The workflow of HIVID2 includes four sub-steps, if you want to manually run the 4 steps one by one, please refer to the file named "HIVID2_manunally_run_four_steps.docx".
+(7) The workflow of HIVID2 includes four sub-steps, if you want to manually run the 4 sub-steps one by one, please refer to the file named "HIVID2_manunally_run_four_steps.docx".
 
 # 6. Citation
 Xi Zeng, Linghao Zhao, Chenhang Shen, Yi Zhou, Guoliang Li, Wing-Kin Sung, HIVID2: an accurate tool to detect virus integrations in the host genome, Bioinformatics, Volume 37, Issue 13, 1 July 2021, Pages 1821–1827, https://doi.org/10.1093/bioinformatics/btab031
