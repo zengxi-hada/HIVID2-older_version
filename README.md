@@ -16,7 +16,7 @@ SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/bkread1.fq.gz
 ### 2nd step: run HIVID2 in one shell script
 perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.sample.list -fa1 /absolute_path/human_ref.fa -fa2 /absolute_path/virus_ref.fa -bin /absolute_path/HIVID2 -c /absolute_path/Config_file
 
-**This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipelin**
+**This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipeline**. HIVID2 has for sub-steps in the 2nd step, but using all_in_one.pl, The user can run HIVID2 just by one single shell script.
 
 **The parameters of all_in_one.pl**
                     -o              <str>           absolute path of output directory
@@ -67,6 +67,7 @@ Format description of the result file:
 12th column is reads id of right support reads
 
 ## 2.3 The introduction of main.pl
+**main.pl is to generate shell scripts for running 4 sub-steps of 2nd step of HIVID2**
 Parameters
 **-o**	   output directory path  
 **-l**	   a file containing sample_id, library_id and FC_id  
