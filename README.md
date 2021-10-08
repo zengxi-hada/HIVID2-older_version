@@ -12,7 +12,9 @@ Manually create a file named total.sample.list should be step1/sample.list. Note
 
 Sample  FC  Lane  Libray  read_length library_size  
 SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/5.fq1.gz /absolute_path/5.fq2.gz
+
 SRR12346  SRR12346  SRR12346  SRR12346  110;110 170 /absolute_path/6.fq1.gz /absolute_path/6.fq2.gz
+
 SRR12347  SRR12347  SRR12347  SRR12347  110;110 170 /absolute_path/7.fq1.gz /absolute_path/7.fq2.gz
 
 ### 2nd step: run HIVID2 in one shell script
