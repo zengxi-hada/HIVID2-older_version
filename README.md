@@ -71,6 +71,7 @@ Format description of the result file:
 ## 2.3 The introduction of main.pl
 **main.pl is to generate shell scripts for running 4 sub-steps of 2nd step of HIVID2**
 Parameters
+  
 **-o**	   output directory path  
 **-l**	   a file containing sample_id, library_id and FC_id  
 **-stp**   step number (1/2/3/4)  
