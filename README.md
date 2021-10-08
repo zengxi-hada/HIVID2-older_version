@@ -16,8 +16,8 @@ SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/bkread1.fq.gz
 ### 2nd step: run HIVID2 in one shell script
 perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.sample.list -fa1 /absolute_path/human_ref.fa -fa2 /absolute_path/virus_ref.fa -bin /absolute_path/HIVID2 -c /absolute_path/Config_file
 
-** This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipelin **
-** The parameters of all_in_one.pl **
+**This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipelin**
+**The parameters of all_in_one.pl**
                     -o              <str>           absolute path of output directory
                     -tl             <str>           total sample list
                     -fa1            <str>           the absolute path of human reference when performing bwa-mem [hg19]
