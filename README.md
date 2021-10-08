@@ -19,12 +19,12 @@ perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.s
 **This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipelin**
 
 **The parameters of all_in_one.pl**
-                    -o              <str>           absolute path of output directory
-                    -tl             <str>           total sample list
-                    -fa1            <str>           the absolute path of human reference when performing bwa-mem [hg19]
-                    -fa2            <str>           the absolute path of pathogene reference when performing bwa-mem [virus]
-                    -bin            <str>           the absolute path of HIVID2 program
-                    -c              <str>           the absolute path of config file for running soap
+                    **-o**              <str>           absolute path of output directory
+                    **-tl**             <str>           total sample list
+                    **-fa1**            <str>           the absolute path of human reference when performing bwa-mem [hg19]
+                    **-fa2**            <str>           the absolute path of pathogene reference when performing bwa-mem [virus]
+                    **-bin**            <str>           the absolute path of HIVID2 program
+                    **-c**              <str>           the absolute path of config file for running soap
 
 
 ## 2.2 Descript of result file and the format
