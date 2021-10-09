@@ -8,7 +8,7 @@ The users should install the packages used in perl and python programs, such as 
 
 ### 1st step: create a sample list
 
-Manually create a file named total.sample.list should be step1/sample.list. Note that the path in the total.sample.list should be absolute full path and the word in the first four columns should be the same. Below is an example of sample.list:
+Manually create a file named total.sample.list(total sample list) should be step1/sample.list. Note that the path in the total.sample.list should be absolute full path and the word in the first four columns should be the same. Below is an example of total.sample.list:
 
 Sample  FC  Lane  Libray  read_length library_size  
 SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/5.fq1.gz /absolute_path/5.fq2.gz
@@ -17,7 +17,7 @@ SRR12346  SRR12346  SRR12346  SRR12346  110;110 170 /absolute_path/6.fq1.gz /abs
 
 SRR12347  SRR12347  SRR12347  SRR12347  110;110 170 /absolute_path/7.fq1.gz /absolute_path/7.fq2.gz
 
-### 2nd step: run HIVID2 in one shell script
+### 2nd step: run HIVID2 in one single shell script
 perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.sample.list -fa1 /absolute_path/human_ref.fa -fa2 /absolute_path/virus_ref.fa -bin /absolute_path/HIVID2 -c /absolute_path/Config_file
 
 **This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipeline**. HIVID2 has for sub-steps in the 2nd step, but using all_in_one.pl, The user can run HIVID2 just by one single shell script automatically.
@@ -27,13 +27,13 @@ perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.s
   
                     -tl             <str>           total sample list
   
-                    -fa1            <str>           the absolute path of human reference when performing bwa-mem [hg19]
+                    -fa1            <str>           the absolute path of indexed human reference when performing bwa-mem [hg19]
   
-                    -fa2            <str>           the absolute path of pathogene reference when performing bwa-mem [virus]
+                    -fa2            <str>           the absolute path of indexed virus reference when performing bwa-mem [virus]
   
                     -bin            <str>           the absolute path of HIVID2 program
   
-                    -c              <str>           the absolute path of config file for running soap
+                    -c              <str>           the absolute path of configure file for running soap
   
 
 ## 2.2 Descript of result file and the format
@@ -83,7 +83,7 @@ Parameters
 **-f**     this parameter is currently useless，please do not use it.
 
 ## 2.4 Description of several predefinding files
-### (1) -C   the Configure file
+### (1) -c   the Configure file
 This configure file difined the referece genomes and alignment parameters used in step3. The users can make their own configure file. But we have involved some configure files which is named as Config* in the same folder of main.pl. Below is the description of the configuration file:  
 soap: the path of the soap2 program  
 ref_virus: the path of soap2 index of virus reference genome  
