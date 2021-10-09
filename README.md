@@ -1,5 +1,5 @@
 # 1. Install
-Download all the files into one folder and run main.pl using "perl /absolute_path_of_main.pl/main.pl parameter1 parameter2 parameter3 ......".
+Download all the files into one folder and run all_in_one.pl using "perl /absolute_path/all_in_one.pl parameter1 parameter2 parameter3 ......".
 The users should install the packages used in perl and python programs, such as PerlIO::gzip, Getopt::Long, File::Basename, etc.
 
 # 2. A Step-to-step protocol of the HIVID2 pipeline 
@@ -8,7 +8,7 @@ The users should install the packages used in perl and python programs, such as 
 
 ### 1st step: create a sample list
 
-Manually create a file named total.sample.list(total sample list) should be step1/sample.list. Note that the path in the total.sample.list should be absolute full path and the word in the first four columns should be the same. Below is an example of total.sample.list:
+Manually create a file named total.sample.list(total sample list) should be step1/sample.list. Note that the path in the total.sample.list should be absolute full path and the first four columns should preferably be the same. Below is an example of total.sample.list:
 
 Sample  FC  Lane  Libray  read_length library_size  
 SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/5.fq1.gz /absolute_path/5.fq2.gz
