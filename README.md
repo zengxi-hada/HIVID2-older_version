@@ -53,8 +53,10 @@ The path of the files of final results:
 **The file of human breakpoint**: step4/*/human/breakpoint/high_confident.*human_bk.final.stp2.uniq2.final
 
 **The file of virus breakpoint**: step4/*/virus/breakpoint/high_confident.*virus_bk.final.stp2.uniq
+ 
+There are also low confident breakpoints, please see our paper in published in Bioinformatics for detail.
 
-Format description of the result file:
+**Format description of the result file:**
 
 1st column is the number of the chromosome where the breakpoint located.
 
