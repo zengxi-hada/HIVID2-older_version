@@ -8,9 +8,9 @@ The users should install the packages used in perl and python programs, such as 
 
 ### 1st step: create a sample list
 
-Manually create a file named total.sample.list(total sample list) should be step1/sample.list. Note that the path in the total.sample.list should be absolute full path and the first four columns should preferably be the same. Below is an example of total.sample.list:
+Manually create a file named total.sample.list(total sample list) should be step1/sample.list. Note that the path in the total.sample.list should be absolute full path and the first four columns should preferably be the same. The header line should be start with #. Below is an example of total.sample.list:
 
-Sample  FC  Lane  Libray  read_length library_size  
+#Sample  FC  Lane  Libray  read_length library_size  
 SRR12345  SRR12345  SRR12345  SRR12345  110;110 170 /absolute_path/5.fq1.gz /absolute_path/5.fq2.gz
 
 SRR12346  SRR12346  SRR12346  SRR12346  110;110 170 /absolute_path/6.fq1.gz /absolute_path/6.fq2.gz
