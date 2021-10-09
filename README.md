@@ -42,6 +42,7 @@ ref_virus: the path of soap2 index of virus reference genome
 ref_human: the path of soap2 index of human reference genome  
 insert_sd: the standard deviation of the insert size for the sequencing library  
 virus_config: the parameters of soap2 corresponding to different read length; for example, "150;150:-l 50 -v 5 -r 1" means when the read length is 150 bps, then soap2 will use the parameter "-l 50 -v 5 -r 1"; please note that read length is set at sample.list under the folder step1.
+
 **soap2 is at soap folder, where 2bwt-builder is used to build the index for the reference genome.**
   
 ## 2.2 Descript of result file and the format
