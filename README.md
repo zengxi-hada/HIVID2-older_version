@@ -79,6 +79,8 @@ Format description of the result file:
 11th column is reads id of left support reads
 
 12th column is reads id of right support reads
+  
+13th column is reads id of discordant reads supporting the breakpoint
 
 ## 2.3 The introduction of main.pl
 **main.pl is to generate shell scripts for manualy running 4 steps in stage2 of HIVID2**
