@@ -50,11 +50,11 @@ virus_config: the parameters of soap2 corresponding to different read length; fo
 
 The path of the files of final results:
 
-**The file of human breakpoint**: step4/*/human/breakpoint/high_confident.*human_bk.final.stp2.uniq2.final
+**The file of final human breakpoint**: step4/*/human/breakpoint/high_confident.*human_bk.final.stp2.uniq2.final
 
-**The file of virus breakpoint**: step4/*/virus/breakpoint/high_confident.*virus_bk.final.stp2.uniq
+**The file of final virus breakpoint**: step4/*/virus/breakpoint/high_confident.*virus_bk.final.stp2.uniq
  
-There are also low confident breakpoints, please see our paper in published in Bioinformatics for detail.
+The low confident breakpoints were stored in files named low_confident.*, please see our paper in published in Bioinformatics for detail.
 
 **Format description of the result file:**
 
