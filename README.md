@@ -27,7 +27,7 @@ Please note that the reference genomes of both human and virus should be indexed
 
 **The parameters of all_in_one.pl**
                    
-                   -o              <str>           absolute path of output directory
+                    -o              <str>           absolute path of output directory
   
                     -tl             <str>           total sample list
   
