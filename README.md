@@ -20,8 +20,8 @@ SRR12347  SRR12347  SRR12347  SRR12347  110;110 170 /absolute_path/7.fq1.gz /abs
 ### stage 2: run HIVID2 in one single shell script (one-stop pipeline)
 perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.sample.list -fa1 /absolute_path/human_ref.fa -fa2 /absolute_path/virus_ref.fa -bin /absolute_path/HIVID2 -c /absolute_path/Config_file
 
-After running all_in_one.pl, each sample will generate a folder in output_directory and there is a shell script named "*_all_in_one.sh" in each folder. Just run it using
-**sh *_all_in_one.sh**
+After running all_in_one.pl, each sample will generate a folder in output_directory and there is a shell script named "sampleID_all_in_one.sh" in each folder. Just run it using
+**sh sampleID_all_in_one.sh**
 
 **This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipeline**. HIVID2 has 4 steps in stage 2, but using all_in_one.pl, The user can run HIVID2 just by one single shell script automatically.
 
