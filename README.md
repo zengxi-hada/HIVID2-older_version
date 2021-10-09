@@ -6,7 +6,7 @@ The users should install the packages used in perl and python programs, such as 
 
 ## 2.1 Step to step tutorial
 
-### 1st step: create a sample list
+### 1st stage: create the sample list
 
 Manually create a file named total.sample.list(total sample list) should be step1/sample.list. Note that the path in the total.sample.list should be absolute full path and the first four columns should preferably be the same. The header line should be start with #. Below is an example of total.sample.list:
 
@@ -17,7 +17,7 @@ SRR12346  SRR12346  SRR12346  SRR12346  110;110 170 /absolute_path/6.fq1.gz /abs
 
 SRR12347  SRR12347  SRR12347  SRR12347  110;110 170 /absolute_path/7.fq1.gz /absolute_path/7.fq2.gz
 
-### 2nd step: run HIVID2 in one single shell script (one-stop pipeline)
+### 2nd stage: run HIVID2 in one single shell script (one-stop pipeline)
 perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.sample.list -fa1 /absolute_path/human_ref.fa -fa2 /absolute_path/virus_ref.fa -bin /absolute_path/HIVID2 -c /absolute_path/Config_file
 
 **This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipeline**. HIVID2 has for sub-steps in the 2nd step, but using all_in_one.pl, The user can run HIVID2 just by one single shell script automatically.
