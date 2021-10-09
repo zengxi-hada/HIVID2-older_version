@@ -81,7 +81,7 @@ Format description of the result file:
 12th column is reads id of right support reads
 
 ## 2.3 The introduction of main.pl
-**main.pl is to generate shell scripts for manualy running 4 sub-steps in 2nd step of HIVID2**
+**main.pl is to generate shell scripts for manualy running 4 steps in 2nd stage of HIVID2**
 
 Parameters
   
