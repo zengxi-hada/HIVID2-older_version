@@ -6,7 +6,7 @@ The users should install the packages used in perl and python programs, such as 
 
 ## 2.1 Step to step tutorial
 
-### 1st stage: create the sample list
+### stage 1: create the sample list
 
 Manually create a file named total.sample.list(total sample list) should be step1/sample.list. Note that the path in the total.sample.list should be absolute full path and the first four columns should preferably be the same. The header line should be start with #. Below is an example of total.sample.list:
 
@@ -17,10 +17,10 @@ SRR12346  SRR12346  SRR12346  SRR12346  110;110 170 /absolute_path/6.fq1.gz /abs
 
 SRR12347  SRR12347  SRR12347  SRR12347  110;110 170 /absolute_path/7.fq1.gz /absolute_path/7.fq2.gz
 
-### 2nd stage: run HIVID2 in one single shell script (one-stop pipeline)
+### stage 2: run HIVID2 in one single shell script (one-stop pipeline)
 perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.sample.list -fa1 /absolute_path/human_ref.fa -fa2 /absolute_path/virus_ref.fa -bin /absolute_path/HIVID2 -c /absolute_path/Config_file
 
-**This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipeline**. HIVID2 has for sub-steps in the 2nd step, but using all_in_one.pl, The user can run HIVID2 just by one single shell script automatically.
+**This program all_in_one.pl is to generate a all-in-one shell script for HIVID2 pipeline**. HIVID2 has 4 steps in stage 2, but using all_in_one.pl, The user can run HIVID2 just by one single shell script automatically.
 
 **The parameters of all_in_one.pl**
                     -o              <str>           absolute path of output directory
@@ -81,7 +81,7 @@ Format description of the result file:
 12th column is reads id of right support reads
 
 ## 2.3 The introduction of main.pl
-**main.pl is to generate shell scripts for manualy running 4 steps in 2nd stage of HIVID2**
+**main.pl is to generate shell scripts for manualy running 4 steps in stage2 of HIVID2**
 
 Parameters
   
@@ -132,7 +132,7 @@ Note: If you want to get the graph one by one, please separate the script and ch
  
 (6) It should be noted that there are a file named "ref.list" in the same folder of main.pl. "ref.list" must contain all the ID of reference genomes used in the sequence alignment of step3 and step4, or the user will get error or uncompleted results in *human_bk.final.stp2.uniq2.final during the procedure of deep removing PCR-duplications in step4. We have involved some predefined reference names in ref.list, but the users should add the references names used in their own experiments. In the ref.list, each ID should be followed by an underline, for example "chr1_".
 
-(7) The workflow of HIVID2 includes four sub-steps, if you want to manually run the 4 sub-steps one by one, please refer to the file named "HIVID2_manunally_run_four_steps.docx".
+(7) The workflow of HIVID2 includes four sub-steps, if you want to manually run the 4 steps one by one, please refer to the file named "HIVID2_manunally_run_four_steps.docx".
 
 # 6. Citation
 Xi Zeng, Linghao Zhao, Chenhang Shen, Yi Zhou, Guoliang Li, Wing-Kin Sung, HIVID2: an accurate tool to detect virus integrations in the host genome, Bioinformatics, Volume 37, Issue 13, 1 July 2021, Pages 1821–1827, https://doi.org/10.1093/bioinformatics/btab031
