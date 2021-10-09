@@ -26,7 +26,8 @@ perl /absolute_path/all_in_one.pl -o output_directory -tl /absolute_path/total.s
 Please note that the reference genomes of both human and virus should be indexed by both bwa and soap2 before running sampleID_all_in_one.sh.
 
 **The parameters of all_in_one.pl**
-                    -o              <str>           absolute path of output directory
+                   
+                   -o              <str>           absolute path of output directory
   
                     -tl             <str>           total sample list
   
