@@ -52,7 +52,7 @@ The path of the files of final results:
 
 **The file of human breakpoint**: step4/*/human/breakpoint/high_confident.*human_bk.final.stp2.uniq2.final
 
-**The file of virus breakpoint**: step4/*/virus/breakpoint/high_confident.*HBV_bk.final.stp2.uniq
+**The file of virus breakpoint**: step4/*/virus/breakpoint/high_confident.*virus_bk.final.stp2.uniq
 
 Format description of the result file:
 
