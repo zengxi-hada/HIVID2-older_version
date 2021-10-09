@@ -2,8 +2,7 @@
 Download all the files into one folder and run all_in_one.pl using "perl /absolute_path/all_in_one.pl parameter1 parameter2 parameter3 ......".
 The users should install the packages used in perl and python programs, such as PerlIO::gzip, Getopt::Long, File::Basename, etc. Please also note to grant executable permissions to some software, or the pipeline will not be able to run. For example:
 
-chmod -R 755 bwa
-chmod -R 755 samtools
+chmod -R 755 bwa; chmod -R 755 samtools
 
 # 2. A Step-to-step protocol of the HIVID2 pipeline 
 
