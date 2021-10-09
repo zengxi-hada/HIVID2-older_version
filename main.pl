@@ -84,7 +84,6 @@ if(!$filter){
 			system "perl $prepare_data -o $outdir -list $list -step $stp -c $config -f $fqnum -qsub -vf $vf2";
 		}else{
 			system "perl $prepare_data -o $outdir -list $list -step $stp -c $config -f $fqnum";
-			print "perl $prepare_data -o $outdir -list $list -step $stp -c $config -f $fqnum\n";
 		}	
 	}elsif($stp == 3){
 		if($qsub){

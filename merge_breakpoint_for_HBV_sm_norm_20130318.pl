@@ -113,7 +113,7 @@ while(<IN>){
 close IN;
 
 if($count_line == 0){
-	die "\nno virus integration was found!\n\n";
+	die "\nno virus integration in $infile\n\n";
 }
 
 if(!@tmp_record){

@@ -36,6 +36,7 @@ my (%support_final, %idh_final);
 
 while(<IN>){
 	next if (/ref/);
+	$count_line++;
 	my @a = split;
 	my $ref = $a[0]; 
 	my $pos = $a[1];
@@ -115,7 +116,7 @@ while(<IN>){
 close IN;
 
 if($count_line == 0){
-	die "\nno virus integration was found!\n\n";
+	die "\nno virus integration in $infile\n\n";
 }
 
 $max_item =  &max_sup (@tmp_record);

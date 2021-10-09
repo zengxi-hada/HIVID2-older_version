@@ -45,8 +45,7 @@ die `pod2text $0` unless ($outdir && $total_list && $bin_dir && $config && $fa1 
 
 open TL, $total_list or die $!;
 while(<TL>){
-	next if /Sample/;
-	next if /sample/;
+	next if /#/;
 	chomp;
 	my @a = split;
 	my $sample_id = $a[0];
