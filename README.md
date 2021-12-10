@@ -145,7 +145,7 @@ Alternatively, users can set the read length in sample.list after completing ste
 
 (7) The workflow of HIVID2 includes four sub-steps, if you want to manually run the 4 steps one by one, please refer to the file named "HIVID2_manunally_run_four_steps.docx".
 
-(8) For whether to use normalized number of support reads: as the normalization value might not be very precise due to the difficulty of estimation the PCR duplication for raw reads, the user could choose to use absolute number of support reads or normalized number of support reads depending on the on the real situation.
+(8) For whether to use normalized number of support reads: as the normalization value might not be very precise due to the difficulty of estimation the PCR duplication for raw reads, the user could choose to use absolute number of support reads or normalized number of support reads depending  on the real situation.
 
 # 6. Citation
 Xi Zeng, Linghao Zhao, Chenhang Shen, Yi Zhou, Guoliang Li, Wing-Kin Sung, HIVID2: an accurate tool to detect virus integrations in the host genome, Bioinformatics, Volume 37, Issue 13, 1 July 2021, Pages 1821–1827, https://doi.org/10.1093/bioinformatics/btab031
