@@ -11,7 +11,7 @@ sys.setdefaultencoding('utf-8')
 sys.setrecursionlimit(10000)
 
 ## author
-#Zhou Yi
+#Yi Zhou, Xi Zeng
 
 bin_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 temp = TemporaryFile()
