@@ -107,7 +107,7 @@ my $circos_input_for_cluster = "$bin/circos_input_for_cluster.pl";
 my $hg19_info = "$bin/hg19.info";
 my $rm_pcr_dup = "$bin/restrict_rm_dup_only_consider_human-align_HZAU.pl";
 my $check_chimera = "$bin/check_chimera.pl";
-my $rm_pcr_dup_again = "$bin/try-fast.v2.py";  #writen by zhouyi
+my $rm_pcr_dup_again = "$bin/try-fast.v3.py";  #writen by Zhouyi and Zengxi
 
 mkdir $outdir if (not -e $outdir);
 my $basename;
