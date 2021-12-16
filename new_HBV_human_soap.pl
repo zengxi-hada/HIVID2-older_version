@@ -4,6 +4,9 @@ use Getopt::Long;
 use File::Basename;
 use PerlIO::gzip;
 
+use Cwd 'abs_path';
+my $bin=dirname (abs_path ($0));
+
 #####################################################################################################################################
 ### this program is to extract the paired reads which may contain virus DNA based on soap results for reads after timmomatics #######
 ###	Author: Yi Shang																										  #######
@@ -300,8 +303,8 @@ close HUMAN2;
 close UNUN1;
 close UNUN2;
 
-my $reads_assembly="/public/home/xzeng/bin/BGI_bin/HPV/norm_hpv/update/HZAU1/overlap_pair_trim.new";
-my $merge="/public/home/xzeng/bin/BGI_bin/HPV/norm_hpv/update/HZAU1/margefa_qua.pl";
+my $reads_assembly="$bin/overlap_pair_trim.new";
+my $merge="$bin/margefa_qua.pl";
 for ($dir_unun,$dir_humanun,$dir_hbvun,$dir_sese,$dir_pepe){
         open SH,">$_/reads_assembly.sh" or die "can't open $_/reads_assembly.sh\n";
         print SH "$reads_assembly -a $_/$name_read1 -b $_/$name_read2 -c $_/left_$name_read1 -d $_/left_$name_read2 -o $_/assembly.fa -q $_/assembly_quality -l 1000 -m 5 -e 0.05 -n 0.05\nperl $merge -i $_/assembly.fa -q $_/assembly_quality -o $_/reads_assembly_mergefa_quality_$name_read1\n";
