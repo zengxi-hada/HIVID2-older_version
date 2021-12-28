@@ -12,8 +12,8 @@ my $bin=dirname (abs_path ($0));
 ##	Last update: 2020-12																				####
 ############################################################################################################
 
-my $usage="perl $0 -o <out dir> -step <2 | 3> -list <FC Insertsize list> -c <config file> -f <the number of fqdata you want to find [10-37]> -filter <whether filter nounique align to human> -qsub -vf <RAM> -help\n";
-my ($out,$step,$list,$con,$find,$qsub,$vf,$help,$filter);
+my $usage="perl $0 -o <out dir> -step <2 | 3> -list <FC Insertsize list> -c <config file> -f <the number of fqdata you want to find [10-37]> -filter <whether filter nounique align to human> -t <thread num> -qsub -vf <RAM> -help\n";
+my ($out,$step,$list,$con,$find,$qsub,$vf,$help,$filter,$thread);
 GetOptions (
 	'o=s'=>\$out,				# output directory
 	'step=i'=>\$step,
@@ -24,6 +24,7 @@ GetOptions (
 	'vf=s'=>\$vf,
 	'help|?'=>\$help,
 	'filter!'=>\$filter,
+	'thread=t'=>\$thread,
 );
 
 die $usage if $help;
