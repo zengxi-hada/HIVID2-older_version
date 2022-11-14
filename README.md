@@ -1,4 +1,4 @@
-# Please use our new version  of HIVID2.2 in the new repository HIVID2! Thank you.
+# Please use our new version  of HIVID2.2 in the new repository HIVID2:
 https://github.com/zengxi-hada/HIVID2
 
 # 1. Install
